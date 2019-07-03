@@ -1,4 +1,6 @@
 ﻿
+const authName = "gridpier.auth";
+
 function getCookies() {
   let cookies:any = {};
   document.cookie.split(';').forEach(function (el) {
@@ -15,10 +17,10 @@ export function getAuth(): Auth | null {
 
 
   let storage = sessionStorage;
-  if (localStorage != null && localStorage['mirror.auth'] != null)
+  if (localStorage != null && localStorage[authName] != null)
     storage = localStorage;
 
-  const auth = storage['mirror.auth'];
+  const auth = storage[authName];
   if (auth == null)
     return null;
 
@@ -36,16 +38,16 @@ export function setAuth(authData: Auth | null, isRemember?: boolean) {
   if (storage == null)
     return;
 
-  storage['mirror.auth'] = JSON.stringify(authData);
+  storage[authName] = JSON.stringify(authData);
 
 }
 
 export function clearAuth() {
   if (sessionStorage != null) {
-    sessionStorage.removeItem('mirror.auth');
+    sessionStorage.removeItem(authName);
   }
   if (localStorage != null) {
-    localStorage.removeItem('mirror.auth');
+    localStorage.removeItem(authName);
   }
 }
 
