@@ -1,0 +1,19 @@
+{
+  "name": "ts-empty-line-encoder",
+  "version": "1.0.0",
+  "description": "Empty line encoder for typescript refactoring",
+  "main": "lib/encoder.js",
+  "types": "lib/encoder.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --config jestconfig.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
+  }
+}
