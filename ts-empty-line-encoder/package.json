@@ -1,6 +1,6 @@
 {
   "name": "ts-empty-line-encoder",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Empty line encoder for typescript refactoring",
   "main": "lib/encoder.js",
   "types": "lib/encoder.d.ts",
