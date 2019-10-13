@@ -1,6 +1,6 @@
 export class EmptyLineEncoder{
-    static defaultEmptyLineMarker:string = "!--empty-line--!";
-    static defaultNewLine:string = '\r\n';
+    static readonly defaultEmptyLineMarker:string = "!--empty-line--!";
+    static readonly defaultNewLine:string = '\r\n';
     constructor(emptyLineMarker?: string, newLine?: string){
         this.emptyLineMarker = emptyLineMarker || EmptyLineEncoder.defaultEmptyLineMarker;
         this.newLine = newLine || EmptyLineEncoder.defaultNewLine;
