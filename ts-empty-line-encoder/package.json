@@ -9,7 +9,9 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "jest --config jestconfig.json"
+    "test": "jest --config jestconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test"
   },
   "author": "gridpier",
   "license": "ISC",
