@@ -1,3 +1,5 @@
+import ts from "typescript";
+
 export class EmptyLineEncoder{
     static readonly defaultEmptyLineMarker:string = "!--empty-line--!";
     static readonly defaultNewLine:string = '\r\n';
@@ -13,6 +15,9 @@ export class EmptyLineEncoder{
     }
     decode(text:string){
         return decodeEmptyLines(text, this.emptyLineMarker, this.newLine);
+    }
+    addLeadingEmptyLineMarker(node:ts.Node){
+        return addLeadingEmptyLineMarker(node, this.emptyLineMarker);
     }
 }
 
@@ -35,6 +40,17 @@ export function decodeEmptyLines(text:string, emptyLineMarker?:string, newLine?:
     
     return uncommentedLines.join(newLine || EmptyLineEncoder.defaultNewLine);
 }
+
+export function addLeadingEmptyLineMarker(node:ts.Node, emptyLineMarker?:string){
+    return (
+        ts.addSyntheticLeadingComment(
+          node,
+          ts.SyntaxKind.MultiLineCommentTrivia,
+          emptyLineMarker || EmptyLineEncoder.defaultEmptyLineMarker,
+            /*hasTrailingNewLine*/ true
+        ));    
+}
+
 
 function toComment(marker:string){
     return `/*${marker}*/`;
