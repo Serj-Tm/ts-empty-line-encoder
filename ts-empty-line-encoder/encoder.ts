@@ -16,7 +16,7 @@ export class EmptyLineEncoder{
     decode(text:string){
         return decodeEmptyLines(text, this.emptyLineMarker, this.newLine);
     }
-    addLeadingEmptyLineMarker(node:ts.Node){
+    addLeadingEmptyLineMarker<T extends ts.Node>(node:T){
         return addLeadingEmptyLineMarker(node, this.emptyLineMarker);
     }
 }
@@ -41,7 +41,7 @@ export function decodeEmptyLines(text:string, emptyLineMarker?:string, newLine?:
     return uncommentedLines.join(newLine || EmptyLineEncoder.defaultNewLine);
 }
 
-export function addLeadingEmptyLineMarker(node:ts.Node, emptyLineMarker?:string){
+export function addLeadingEmptyLineMarker<T extends ts.Node>(node:T, emptyLineMarker?:string){
     return (
         ts.addSyntheticLeadingComment(
           node,
