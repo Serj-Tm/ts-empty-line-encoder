@@ -4,6 +4,7 @@
   "description": "Empty line encoder for typescript refactoring",
   "main": "lib/encoder.js",
   "types": "lib/encoder.d.ts",
+  "files": ["lib/**/*"],
   "scripts": {
     "build": "tsc",
     "test": "jest --config jestconfig.json"
