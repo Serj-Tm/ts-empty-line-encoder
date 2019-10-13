@@ -23,7 +23,7 @@ export function encodeEmptyLines(text:string, emptyLineMarker?:string, newLine?:
     
     const commentedLines = lines.map(line => line.trim() == '' ? marker : line);
     
-    return commentedLines.join(newLine || '\r\n');
+    return commentedLines.join(newLine || EmptyLineEncoder.defaultNewLine);
 }
 
 export function decodeEmptyLines(text:string, emptyLineMarker?:string, newLine?:string){
@@ -33,7 +33,7 @@ export function decodeEmptyLines(text:string, emptyLineMarker?:string, newLine?:
 
     const uncommentedLines = lines.map(line => line == marker ? '' : line);
     
-    return uncommentedLines.join(newLine || '\r\n');
+    return uncommentedLines.join(newLine || EmptyLineEncoder.defaultNewLine);
 }
 
 function toComment(marker:string){
