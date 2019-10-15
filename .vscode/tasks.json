@@ -6,10 +6,10 @@
         {
             "type": "npm",
             "script": "build",
-            "path": "pmk-auth/",
             "problemMatcher": [
                 "$tsc"
-            ]
+            ],
+            "group": "build"
         }
     ]
 }
