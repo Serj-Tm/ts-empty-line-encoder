@@ -36,7 +36,7 @@ export function decodeEmptyLines(text:string, emptyLineMarker?:string, newLine?:
 
     var lines = text.split(/\r?\n/);
 
-    const uncommentedLines = lines.map(line => line == marker ? '' : line);
+    const uncommentedLines = lines.map(line => line.trim() == marker ? '' : line);
     
     return uncommentedLines.join(newLine || EmptyLineEncoder.defaultNewLine);
 }
